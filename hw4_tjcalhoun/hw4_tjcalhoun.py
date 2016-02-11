@@ -14,7 +14,7 @@ menuPrice = None
 print("Instructions: Type into the input fields and press enter. \nIt will prompt you at each completed entry if you"
       "are finished, or need to add more.\n\n")
 
-finText = "\n\nFinished (Y/N)?\n" #String Variables to print during the entry process...
+finText = "\n\nFinished (Y/N)?:" #String Variables to print during the entry process...
 notFinResp = "\nNext Item...\n"
 
 #I like using defined functions, breaking into phases each stage of the program, with the option for callback.
