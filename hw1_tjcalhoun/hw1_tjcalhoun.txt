@@ -1,0 +1,71 @@
+Python 3.5.1 (v3.5.1:37a07cee5969, Dec  6 2015, 01:38:48) [MSC v.1900 32 bit (Intel)] on win32
+Type "copyright", "credits" or "license()" for more information.
+>>> 100
+100
+>>> print (4)
+4
+>>> B = 3
+>>> B = 4
+>>> b
+Traceback (most recent call last):
+  File "<pyshell#4>", line 1, in <module>
+    b
+NameError: name 'b' is not defined
+>>> B
+4
+>>> A = "Awesome"
+>>> a
+Traceback (most recent call last):
+  File "<pyshell#7>", line 1, in <module>
+    a
+NameError: name 'a' is not defined
+>>> A
+'Awesome'
+>>> A + B
+Traceback (most recent call last):
+  File "<pyshell#9>", line 1, in <module>
+    A + B
+TypeError: Can't convert 'int' object to str implicitly
+>>> A = "2016"
+>>> A + B
+Traceback (most recent call last):
+  File "<pyshell#11>", line 1, in <module>
+    A + B
+TypeError: Can't convert 'int' object to str implicitly
+>>> type (A)
+<class 'str'>
+>>> type (B)
+<class 'int'>
+>>> int (A)
+2016
+>>> A = int(A)
+>>> A
+2016
+>>> A + B
+2020
+>>> print(A+B) - 2000
+2020
+Traceback (most recent call last):
+  File "<pyshell#18>", line 1, in <module>
+    print(A+B) - 2000
+TypeError: unsupported operand type(s) for -: 'NoneType' and 'int'
+>>> print ((A+B) - 2000)
+20
+>>> print ("this" + "class" + "is" + "awesome")
+thisclassisawesome
+>>> print ("trying" + "something" - "new")
+Traceback (most recent call last):
+  File "<pyshell#21>", line 1, in <module>
+    print ("trying" + "something" - "new")
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+>>> print ("trying" + "something" + "new" - "new")
+Traceback (most recent call last):
+  File "<pyshell#22>", line 1, in <module>
+    print ("trying" + "something" + "new" - "new")
+TypeError: unsupported operand type(s) for -: 'str' and 'str'
+>>> user = "Thomas"
+>>> feels = "Loves"
+>>> food = "Pizza"
+>>> print (user + feels + food)
+ThomasLovesPizza
+>>> 
