@@ -24,7 +24,7 @@ def mainMenu(): #The Nerve center of this application, to direct the user to his
         global menu #This makes my variable reachable within the function.
         print("--== MAIN MENU ==--".center(80))
         chgDictSelect = input("\nPlease choose from the following menu options:\n[A] Create/Modify Entries\n"
-                              "[B] Print all Entries\n[C] Delete an Entry\n[X] Quit Program\n>>> SELECTION:\n")
+                              "[B] Print all Entries\n[C] Delete an Entry\n[X] Quit Program\n>>> SELECTION:")
         if chgDictSelect in ("a","A"):
             setMenuDict() #call to the function defined below to add keys
         elif chgDictSelect in ("b","B"):
