@@ -3,81 +3,68 @@
 # tjcalhoun@alaska.edu 04 Feb 2016
 # Python 3.5.1
 
+import sys
 
-#Your application must:
-#    run without errors or exceptions
-#    ask for data in a clear and concise manner
-#    be able to collect data until the user says they're done
-#    sort the collected data and the extrapolated data in a tidy and attractive table
-#    apply an algorithm that works for all reasonable input (outlier cases are exceptions)
-#    while loop to gather data
-#To get full credit, you must:
-#    use good python style (including 80 char width maximum)
-#    comment your code
-#    challenge yourself!
-#Freebies, this time!
-#    assume good data
-#    no error checking necessary
-#Hints:
-#    a while loop is a great way to build your collection of data
-#    a list or a dictionary is a great way to store your data
-#    make sure you can enter 10 different items and your algorithm works for all of them!
+print("Welcome to The Command-Prompt Menu Generator!".center(80))
 
-print("Welcome to The Command-Prompt Menu Generator!")
-
-menu = {"Sammich":"$2", "Fries":"$1", "Pop":"$0.75"}
+menu = {}
 menuItem = None
 menuPrice = None
 
-input("\n\nPress enter to begin\n\n")
 print("Instructions: Type into the input fields and press enter. \nIt will prompt you at each completed entry if you"
       "are finished, or need to add more.\n\n")
-finText = "\n\nFinished (Y/N)?\n"
-notFinResp = "\n\nNext Item...\n"
 
-#def setMenuDict():
-#    while (True):
-#        print("Begin!\n\n")
-#        menuItem = input("Menu Item:\n")
-#        menuPrice = input("Menu Price:\n")
-#        menu[menuItem] = menuPrice
-#        finQuest = input(finText)
-#        if finQuest in ("y","Y"):
-#            break
-#        else:
-#            print(notFinResp)
-#    return True
+finText = "\n\nFinished (Y/N)?\n" #String Variables to print during the entry process...
+notFinResp = "\nNext Item...\n"
 
-#menuStr = list(menu)
+#I like using defined functions, breaking into phases each stage of the program, with the option for callback.
 
-def printAllDict():
+def mainMenu(): #The Nerve center of this application, to direct the user to his/her area of choice.
     while (True):
-        printResult = input("\nWould you like to review your entries? (Y/N):\n")
-        if printResult in ("n","N"):
-            break
-        elif printResult in ("y","Y"):
-            spacer = ("\n"+"~**~"*15+"\n")
-            print(spacer,"\nItems below listed in a 'KEY - VALUE' Pair...",)
-            for key,val in menu.items():
-                print(spacer, '{0:28}-=-                     {1:10}'.format(key, val), spacer)
+        global menu #This makes my variable reachable within the function.
+        print("--== MAIN MENU ==--".center(80))
+        chgDictSelect = input("\nPlease choose from the following menu options:\n[A] Create/Modify Entries\n"
+                              "[B] Print all Entries\n[C] Delete an Entry\n[X] Quit Program\n>>> SELECTION:\n")
+        if chgDictSelect in ("a","A"):
+            setMenuDict() #call to the function defined below to add keys
+        elif chgDictSelect in ("b","B"):
+            printAllDict() #call to the function below to print my pretty table.
+        elif chgDictSelect in ("c","C"):
+            delKeyName = input("\nType the name of the key to delete:\n") #Key deletion, small enough to just perform
+            try:                                                          #   within the main menu
+                del menu[delKeyName]
+            except KeyError:
+                pass
+            print("Key successfully removed!")
+        elif chgDictSelect in ("x","X"):
+            sys.exit() #Using the imported "sys" module, this kills the entire script's process.
+        else:
+            print("\nOops, that option is not available, please try again!\n") #To let the user know if they keyed in
+    return True                                                                #   a non-existent option.
 
-def dictEntryProcess():
-    print("\n\nLets create a Menu!\n\n")
-    #setMenuDict()
-    printAllDict()
-
-def lastChance():
-    questionOfTheCentury = input("\n\nDo you want to make any modifications to those Menus? (Y/N):\n")
+def setMenuDict(): #Process for Adding/Modifying Keys
     while (True):
-        if questionOfTheCentury in ("n","N"):
+        print("Begin!".center(80))
+        menuItem = input("Menu Item:\n") #These empty variables take the user input as strings,
+        menuPrice = input("Menu Price:\n")
+        menu[menuItem] = menuPrice #and this merges our strings into the dictionary's variable.
+        finQuest = input(finText)
+        if finQuest in ("y","Y"): #A prompt on whether or not the user would like to continue.
             break
-        elif questionOfTheCentury in ("y","Y"):
-            chgDictSelect = input("\nPlease select Menu you would like to change ([x] to Cancel) :"
-                                  "\n[A] Menu\n>>> SELECTION:   \n\n")
-            if chgDictSelect in ("a","A"):
-                setMenuDict()
-            elif chgDictSelect in ("x","X"):
-                break
+        elif finQuest in ("n","N"):
+            print(notFinResp.center(80))
+    return True
 
-dictEntryProcess()
-lastChance()
+def printAllDict(): #Process for printing values in a fancy table format
+    spacer = ("\n ::"+",:'':,"*10+"::\n")
+    spGrid = "::"
+    ctrGrid = "--==--"
+    rpGrid = "  ::"
+    print("\nItems below listed in a 'KEY - VALUE' Pair...",)
+    for key,val in menu.items():
+        print(spacer, '{0:3s}{1:20s}{2:27s}{3:10s}{4:4s}'.format(spGrid, key, ctrGrid.center(22),
+                                                                 val.rjust(10), rpGrid), spacer)
+
+mainMenu()
+
+print("\n\n**Have a great day! Thank you for using The Command-Prompt Menu Generator!**")
