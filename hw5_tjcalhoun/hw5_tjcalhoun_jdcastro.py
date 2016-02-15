@@ -49,7 +49,7 @@ input("\n\nPress the <ENTER> Key to continue...".center(80))
 
 
 # --- Stuff that I'm gonna hack up, from an abandoned game idea ---
-
+import sys
 
 print('             The Adventures of Grog\n'
       "                ______.--------.\n"
