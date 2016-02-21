@@ -1,7 +1,5 @@
-# Thomas Calhoun & Jose Castro
-# homework #4
-# tjcalhoun@alaska.edu & jdcastro@alaska.edu 04 Feb 2016 to 10 Feb 2016
-# Python 3.5.1
+#Shared with our CITS205 peeps.
+
 from collections import Counter
 import time
 
@@ -60,7 +58,7 @@ vaultBoy = """
 answerDict = {
     "\n\nYou are approached by a frenzied vault scientist who yells \"I'm going to put my quantum harmonizer in your\n"
     "photonic resonation chamber!\" What do you say?\n"
-    :{"A":" A.But doctor, wouldn't that cause a parabolic destabilization of the fission singularity?\n",
+    :{"A":" A. But doctor, wouldn't that cause a parabolic destabilization of the fission singularity?\n",
       "B":"B. \"Yeah? Up yours too, buddy!\"\n",
       "C":"C. Say nothing, but grab a nearby pipe and hit the scientist in the head to knock him out. \n    For all you"
           " knew, he was planning on blowing up the vault.\n",
@@ -98,16 +96,16 @@ answerDict = {
     "\n\nOh no! You've been exposed to radiation, and a mutated hand has grown out of your stomach! Whats the best \n"
     "course of treatment?\n"
     :{"A":" A. Bullet to the brain.\n",
+      "B":"B. Large Doses of anti-mutagen agent.\n",
+      "C":"C. Prayer, Maybe God will spare you in exchange for a life of pious devotion?\n",
+      "D":"D. Removal of the mutated tissue with a precision laser.\n"},
+    "\n\nA fellow Vault 101 resident is in possession of a Grognak the Barbarian comic book, issue number 1.\n"
+    "You want it. What's the best way to obtain it?\n"
+    :{"A":" A. Trade the comic book for one of your own valuable possessions.\n",
       "B":"B. Steal the comic book at gunpoint.\n",
       "C":"C. Sneak into the resident's quarters, and steal the comic book from his desk\n",
       "D":"D. Slip some knock out drops into the resident's Nuka Cola, and take the comic book when he's"
           " unconscious.\n"},
-    "\n\nA fellow Vault 101 resident is in possession of a Grognak the Barbarian comic book, issue number 1.\n"
-    "You want it. What's the best way to obtain it?\n"
-    :{"A":" A. Trade the comic book for one of your own valuable possessions.\n",
-      "B":"B. Large Doses of anti-mutagen agent.\n",
-      "C":"C. Prayer, Maybe God will spare you in exchange for a life of pious devotion?\n",
-      "D":"D. Removal of the mutated tissue with a precision laser.\n"},
     "\n\nYou decide it would be fun to play a prank on your father. You enter his private restroom\n"
     "when no one is looking, and...\n"
     :{"A":" A. Loosen some bolts on the sink. When the sink is turned on, the room will flood.\n",
@@ -161,6 +159,7 @@ def goat_loop(): # the engine of our test, the loop to call our dictionary out i
                 else:  # ...a merciless one at that.
                     print("\nERROR!!! You entered a selection that is not supported, "
                           "please restart the test...\n\n\n".center(80))
+                    tick = 0
                     goat_loop()
 
 def last_q_loop(): #final loop for the final question. (wanted to build up to this one haha)
@@ -178,13 +177,13 @@ def last_q_loop(): #final loop for the final question. (wanted to build up to th
                 else:
                     print("\nERROR!!! You entered a selection that is not supported, "
                           "please restart the test...\n\n\n".center(80))
+                    tick = 0
                     goat_loop()
 
 def grading_protocol(): # to get the grades to sort correctly, we imported the counter module to assign a score
-    global sortedGrade
-    dictatedAnswers = Counter(ansRecord)
-    sortedGrade = sorted(dictatedAnswers.items(), key=lambda x:x[1])
-    sortedGrade.sort() #the list of tuples at this point had to be re-sorted...
+    global sortedGrade #made this global to be called outside of the function
+    dictatedAnswers = Counter(ansRecord) #our list of answers will need to be have the values counted.
+    sortedGrade = dictatedAnswers.most_common() #using the power of the imported module to sort for the highest value.
     for grade in sortedGrade[0][0]: #...so that this following conditionals will the highest value.
         if grade is "A":
             print("\nCongratulations on completing the G.O.A.T! You perfect job is...\n\nWASTE MANAGEMENT "
