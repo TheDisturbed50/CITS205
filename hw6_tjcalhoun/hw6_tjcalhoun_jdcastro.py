@@ -1,27 +1,30 @@
+
 # Thomas Calhoun & Jose Castro
 # homework #6
 # tjcalhoun@alaska.edu & jdcastro@alaska.edu 18 Feb 2016 to 25 Feb 2016
 # Python 3.5.1
 
 from random import randint
+import time
 
 # The Welcome Screen
 
-print("Welcome to the number guessing game!")
+print("Welcome to the number guessing game!".center(80))
 print()
 
-#The variable to be reassigned or utilized later
+#The variables to be reassigned or utilized later
 fancySpacer = "*^^*"*15  # A decorative spacer to segregate the sections of this program at a user perspective.
 genderVar = ""
-random = randint(1, 20)
+random = 0
 num = 0 # gets reassigned later in the function
 
 def name_set(): # the First called function, to identify our victim... erm, I mean player. Yeah.
     global Userinput, genderInput, genderVar
     Userinput = input("Please tell me your name: ")
+    print()
     while True: # a loop was the easiest way to demand a consistent answer from the user.
-        genderInput = input("Now, select from one of the following Genders:\n"
-                            " 'male'?\n 'female'?\n 'dragon'?\nChoice: ").lower()
+        genderInput = input("Now, select from one of the following Genders:\n\n"
+                            " Male\n Female\n Dragon \n\nChoice: ").lower()
         if genderInput == "male":
             genderVar = "Sir "
             break
@@ -35,64 +38,135 @@ def name_set(): # the First called function, to identify our victim... erm, I me
         else: # the 'keep alive' for the loop, no break is ordered if we don't get what we want.
             print("\nOops! Input not recognized! Please type an appropriate gender! (no spaces) \n")
 
-# After the amount of tries is expended.
-def losers_weep():
-    print("\nI regret to inform you, that you have lost.\n    Better luck next time!!!")
+def easter_egg(): # an extra element to add to the fun
+    print("WARNING".center(80))
+    time.sleep(3.00)
     print()
-    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!")
-
-# The Correct Guess
-def winner_circle():
-    print("\nCongratulations YOU WIN!!!")
+    print("WARNING".center(80))
+    time.sleep(3.00)
     print()
-    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!")
-    if Useroutput is "Smaug":
-        print("\nYou may have noticed that your name has been modified... \n    Only {} is a truly notable name "
-              "for a dragon in this realm!\n".format(Useroutput))
+    print("WHAT DID YOU DO".center(80))
+    time.sleep(3.00)
+    print()
+    print("DO YOU KNOW WHAT YOU JUST DID!!!".center(80))
+    time.sleep(3.00)
+    print()
+    print("IT TOOK US A WHILE TO LOCK HIM UP".center(80))
+    print()
+    time.sleep(3.00)
+    print()
+    print("\n\n\n\n\n"+"LOOK WHAT YOU HAVE YOU DONE!!!!!!".center(80)+"\n\n\n\n")
+    time.sleep(3.00)
+    input("""
 
-def easter_egg():
-    print("\n\n\n\n\n<<< EASTER EGG PLACER 'Test'>>>\n\n\n\n") #need to further develop this feature
-    input("Test INPUT:  ")
+
+           .'''*(7????(C?!!,''.                                           
+           '!(7(!,,!?,,,,!!,,!!C!!,       
+        '!(?,,,?,,,,,,,,,,,,,,,(,,!7!'      
+       !?((,,,,,,,,,,,,,,,,,,,,,,,,*C??        
+     ?=*,,,,,?!!,,,,,,,,,,,,,,,,,,,,,,,=*                                   
+   .?((,,,,*?((=C=!,,,,,,,,,,,,,,,,,**,((*    
+ .*=!,,,,,?!.    *(*,,,,,,,,,,,,*(=77(!,,?*   
+ ==?,,,,,,(   ?   .=,,,,,,,,,,,*(*'''!?,,,C.    
+ ===,,,,,,(  .,.. .7,,,,,,!?,,,=   ', '(,,??   You Have Released Me 
+   '(*,,,,(C=?!!?7C*,,,,,,*7,,*=,,,,,  =,,,(=,    VICTORY WILL BE MINE
+    '??,,,,!?(?((!*,,,,,,,*=,,,7(!!*!?=!,,(7=,                              
+      ,?!,,,,,,,,,,,,,,,,?33*,,,?(???(**??.                                 
+        '!?**,,,,,,,,,,,,,**,,,,,,,*,*?!'                                   
+         .*=7(?*,,,,,,,,,,,,,,,,,,!(!!.                                     
+ ,!!*'????!****?73C?!**!??***!?(((!((?!''.'.                                
+ C=**!(=,,,,,,,,=A5????=A5???!*,,,,,,,*=7!*!?                               
+*(((*,,=!,,,,***C35!***(55=,,,,,,,,,,,(??*,77.                              
+=*C7!,,==??CJ3%$$=A$$$$A=33????????((?C,*?=7?(                              
+'=?C!(*.  'AA%%%%%%%%%%%%A3          .!?*7=(7'                              
+ .',,.    7%%%%%%%%%%%%%%%%            '*!*'.                               
+         .A%%%%%%%%%%%%%%%%                                                 
+         ?A%%%%%%%AA55A%%%A'                                                
+         C%%%%%%%%#A%%%%%%%7          
+
+Press enter to spank Stewie for being a cranky butt and set him in his crib for a nap...
+          """+"\n"+"ACHIEVEMENT UNLOCKED:".center(80)+"\n"+
+          "Bedtime will be mine!".center(80)+"\n\n\nPress enter to continue...")
+
+def easter_egg2():
+    print("\n\n\n\n\n"+"ALASKANIZED!!!".center(80)+"\n\n\n\n")
+    input("""
+
+
+                                            .      //
+                                       /) \ |\    //
+                                 (\\\\|  || \)u|   |F     /)
+                                  \```.FF  \  \  |J   .'/
+                               __  `.  `|   \  `-'J .'.'
+        ______           __.--'  `-. \_ J    >.   `'.'   .
+    _.-'      ""`-------'           `-.`.`. / )>.  /.' .<'
+  .'                                   `-._>--' )\ `--''
+  F .                                          ('.--'"
+ (_/                                            '\\
+  \                                             'o`.
+  |\                                                `.
+  J \          |              /      |                \\
+   L \                       J       (             .  |
+   J  \      .               F        _.--'`._  /`. \_)
+    F  `.    |                       /        ""   "'
+    F   /\   |_          ___|   `-_.'
+   /   /  F  J `--.___.-'   F  - /
+  /    F  |   L            J    /|
+ (_   F   |   L            F  .'||
+  L  F    |   |           |  /J  |
+  | J     `.  |           | J  | |              ____.---.__
+  |_|______ \  L          | F__|_|___.---------'
+--'        `-`--`--.___.-'-'---
+
+    """+"\n"+"ACHIEVEMENT UNLOCKED:".center(80)+"\n"+"Alaskan Curiosity!".center(80)+"\n\n\nPress enter to continue...")
 
 def guess_loop(): # the gears of our game.
+    global random, num
     def difficulty_select(): # allows the user to tailor the difficulty to their skills
-        global setTries, setMax
+        global setTries, setMax, random, num
         setTries = 0
         setMax = 20
-        print(fancySpacer, "\n\nHear ye, hear ye, {}{}, \n    You have a chance to affect your destiny...\n"
+        print(fancySpacer, "\n\nHear ye, hear ye, {}{}, \n    You have a chance to choose your destiny...\n"
+              "\n"
               "Choose from one of the following difficulties:\n"
+              "\n"
               "  [A] I laugh at the face of death, when if comes to guessing... \n"
-              "      (3 Tries, 25 Possibilities)\n" # inspired by Thomas' wife. Since she had a winning streak... -.-
+              "      (3 Tries, 30 Possibilities)\n" # inspired by Thomas' wife. Since she had a winning streak... -.-
               "  [B] I guess I could guess as good as the rest... \n"
-              "      (7 Tries, 20 Possibilities)\n"
+              "      (7 Tries, 25 Possibilities)\n"
               "  [C] Guessing is for losers... \n"
               "      (10 Tries, 20 Possibilities)\n".format(genderVar,Useroutput.title()))
         diffSelect = input("Your Choice: ").lower()
         if diffSelect == "a":
             setTries = 3
-            setMax = 25
+            setMax = 30
         if diffSelect == "b":
             setTries = 7
-            setMax = 20
+            setMax = 25
         if diffSelect == "c":
             setTries = 10
             setMax = 20
     difficulty_select() # calling the above function to set the difficulty
-    global num
     tries = setTries # num of tries set by our difficulty.
+    random = randint(1, setMax) #the random module is called, and works with a variable assigned.
     print(fancySpacer+"\n")
     print("I am thinking of a number between 1 and %i" % setMax)
     print()
     print("Can you guess it in %i attempts?!\n" % tries)
     num = int(input("Enter a number [1-{}]: ".format(setMax)))
     numList = [] #easter egg step 1: list to log input
-    eEggQuota = [2,0,5] #easter egg step 2: a criteria to meet to enable easter egg
+    cits205 = [2,0,5] #easter egg step 2: a criteria to meet to enable easter egg
+    akPride = [9,0,7]
     while tries > 0: # active loop
         tries -= 1 # deduction per iteration.
         numList.append(num)
         print("You have %s tries remaining!" % tries) # a nice reminder, but it also prints after a matching guess...
-        if numList == eEggQuota: #activation of easter egg!
+        if numList == cits205: #activation of easter egg!
             easter_egg()
+            tries += 2
+        elif numList == akPride: #activation of easter egg!
+            easter_egg2()
+            tries += 2
         elif num != random:
             if num > setMax:
                 print("\nError_00: You entered a number that exceeds the possible guess bounds...\n"
@@ -114,6 +188,28 @@ def guess_loop(): # the gears of our game.
             winner_circle()
             break
 
+# After the amount of tries is expended.
+def losers_weep():
+    print("\nI regret to inform you, that you have lost. "
+          "The number was {}!\n    Better luck next time!!!".format(random))
+    print()
+    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!\n")
+    print("Would you like to try again?")
+    restartPrompt = input("[Y / N]:  ").lower()
+    if restartPrompt == "y":
+        guess_loop()
+    else:
+        print("\n\nOkay, Goodbye!\n")
+
+# The Correct Guess
+def winner_circle():
+    print("\nCongratulations YOU WIN!!! The number was indeed {}!".format(random))
+    print()
+    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!")
+    if Useroutput is "Smaug":
+        print("\nYou may have noticed that your name has been modified... \n    Only {} is a truly notable name "
+              "for a dragon in this realm!\n".format(Useroutput))
+
 name_set() # Call to begin the program.
 
 Useroutput = str(Userinput)
@@ -123,9 +219,10 @@ try: # Call to begin the game with exception handling.
 except ValueError as err:
     print("Error_01: Wrong input! You need to type a number. Please re-enter and try again.")
     guess_loop()
-except Exception as err:
-    print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
-    guess_loop()
+#except Exception as err:
+    #print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
+    #guess_loop()
 
 print("\n")
 input("Press RETURN to exit..")
+
