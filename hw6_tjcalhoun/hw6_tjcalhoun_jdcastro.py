@@ -50,6 +50,9 @@ def winner_circle():
         print("\nYou may have noticed that your name has been modified... \n    Only {} is a truly notable name "
               "for a dragon in this realm!\n".format(Useroutput))
 
+def easter_egg():
+    print(" <<< EASTER EGG PLACER 'Test'>>>")
+
 def guess_loop(): # the gears of our game.
     def difficulty_select(): # allows the user to tailor the difficulty to their skills
         global setTries, setMax
@@ -81,10 +84,15 @@ def guess_loop(): # the gears of our game.
     print()
     print("Can you guess it in %i attempts?!\n" % tries)
     num = int(input("Enter a number [1-{}]: ".format(setMax)))
+    numList = []
+    eEggQuota = [2,0,5]
     while tries > 0: # active loop
         tries -= 1 # deduction per iteration.
+        numList.append(num)
         print("You have %s tries remaining!" % tries) # a nice reminder, but it also prints after a matching guess...
-        if num != random:
+        if numList == eEggQuota:
+            easter_egg()
+        elif num != random:
             if num > setMax:
                 print("\nError_00: You entered a number that exceeds the possible guess bounds...\n"
                       "    Please re-enter your guess and try again.\n") # basic error check
