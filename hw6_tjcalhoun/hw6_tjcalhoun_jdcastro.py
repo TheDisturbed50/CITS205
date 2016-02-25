@@ -51,7 +51,8 @@ def winner_circle():
               "for a dragon in this realm!\n".format(Useroutput))
 
 def easter_egg():
-    print(" <<< EASTER EGG PLACER 'Test'>>>")
+    print("\n\n\n\n\n<<< EASTER EGG PLACER 'Test'>>>\n\n\n\n") #need to further develop this feature
+    input("Test INPUT:  ")
 
 def guess_loop(): # the gears of our game.
     def difficulty_select(): # allows the user to tailor the difficulty to their skills
@@ -84,13 +85,13 @@ def guess_loop(): # the gears of our game.
     print()
     print("Can you guess it in %i attempts?!\n" % tries)
     num = int(input("Enter a number [1-{}]: ".format(setMax)))
-    numList = []
-    eEggQuota = [2,0,5]
+    numList = [] #easter egg step 1: list to log input
+    eEggQuota = [2,0,5] #easter egg step 2: a criteria to meet to enable easter egg
     while tries > 0: # active loop
         tries -= 1 # deduction per iteration.
         numList.append(num)
         print("You have %s tries remaining!" % tries) # a nice reminder, but it also prints after a matching guess...
-        if numList == eEggQuota:
+        if numList == eEggQuota: #activation of easter egg!
             easter_egg()
         elif num != random:
             if num > setMax:
