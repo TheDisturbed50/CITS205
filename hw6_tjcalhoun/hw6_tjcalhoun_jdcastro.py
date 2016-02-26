@@ -157,10 +157,12 @@ def guess_loop(): # the gears of our game.
     numList = [] #easter egg step 1: list to log input
     cits205 = [2,0,5] #easter egg step 2: a criteria to meet to enable easter egg
     akPride = [9,0,7]
-    numBufferChk = []
-    for bufferUp in range(num+1,5):
-        numBufferChk.append(bufferUp)
-
+    numBufferHigh = [] #using these empty lists to append below
+    numBufferLow = []
+    for increase in range(random+1,random+6): # the following loops will help guide our victim-player to success!
+        numBufferHigh.append(increase)
+    for decrease in range(random-6,random):
+        numBufferLow.append(decrease)
     while tries > 0: # active loop
         tries -= 1 # deduction per iteration.
         numList.append(num)
@@ -182,10 +184,14 @@ def guess_loop(): # the gears of our game.
                 break
             elif num > random:
                 print ("Too High, guess again!\n")
+                if num in numBufferHigh:
+                    print("But, you are close!")
                 num = int(input("Enter a number [1-{}]: ".format(setMax)))
                 continue
             elif num < random:
                 print ("Too Low, guess again!\n")
+                if num in numBufferLow:
+                    print("But, you are close!")
                 num = int(input("Enter a number [1-{}]: ".format(setMax)))
                 continue
         elif num == random: # our winning factor.
