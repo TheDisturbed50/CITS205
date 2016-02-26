@@ -157,6 +157,10 @@ def guess_loop(): # the gears of our game.
     numList = [] #easter egg step 1: list to log input
     cits205 = [2,0,5] #easter egg step 2: a criteria to meet to enable easter egg
     akPride = [9,0,7]
+    numBufferChk = []
+    for bufferUp in range(num+1,5):
+        numBufferChk.append(bufferUp)
+
     while tries > 0: # active loop
         tries -= 1 # deduction per iteration.
         numList.append(num)
