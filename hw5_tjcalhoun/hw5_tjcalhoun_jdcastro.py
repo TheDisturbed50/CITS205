@@ -14,6 +14,7 @@ print("ARE YOU READY".center(80))
 time.sleep(2.00)
 print()
 
+
 #we were suprised to see that ASCII art works just fine in python.
 vaultBoy = """
                                           ,▄▄▄
