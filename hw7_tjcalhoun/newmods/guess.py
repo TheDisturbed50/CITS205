@@ -7,14 +7,10 @@
 from random import randint
 import time
 
-# The Welcome Screen
-
-print("Welcome to the number guessing game!".center(80))
-print()
-
 #The variables to be reassigned or utilized later
 fancySpacer = "*^^*"*15  # A decorative spacer to segregate the sections of this program at a user perspective.
 genderVar = ""
+Userinput = ""
 random = 0
 num = 0 # gets reassigned later in the function
 
@@ -220,19 +216,21 @@ def winner_circle():
         print("\nYou may have noticed that your name has been modified... \n    Only {} is a truly notable name "
               "for a dragon in this realm!\n".format(Useroutput))
 
-name_set() # Call to begin the program.
-
 Useroutput = str(Userinput)
 
-try: # Call to begin the game with exception handling.
-    guess_loop()
-except ValueError as err:
-    print("Error_01: Wrong input! You need to type a number. Please re-enter and try again.")
-    guess_loop()
-#except Exception as err:
-    #print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
-    #guess_loop()
+def call_to_start():
+	# The Welcome Screen
+	print("Welcome to the number guessing game!".center(80))
+	print()
+	name_set() # Call to begin the program.
 
-print("\n")
-input("Press RETURN to exit..")
+	try: # Call to begin the game with exception handling.
+		guess_loop()
+	except ValueError as err:
+		print("Error_01: Wrong input! You need to type a number. Please re-enter and try again.")
+		guess_loop()
+	except Exception as err:
+		print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
+		guess_loop()
+
 

@@ -22,21 +22,25 @@ notFinResp = "\nNext Item...\n"
 def mainMenu(): #The Nerve center of this application, to direct the user to his/her area of choice.
     while (True):
         global menu #This makes my variable reachable within the function.
-        print("--== MAIN MENU ==--".center(80))
-        chgDictSelect = input("\nPlease choose from the following menu options:\n[A] Create/Modify Entries\n"
-                              "[B] Print all Entries\n[C] Delete an Entry\n[X] Quit Program\n>>> SELECTION:")
-        if chgDictSelect in ("a","A"):
+        print("--== MENU ==--".center(80))
+        chgDictSelect = input("\nPlease choose from the following menu options:\n[C] Create/Modify Entries\n"
+                              "[P] Print all Entries\n[D] Delete an Entry\n[Q] Quit Program\n"
+							  "[E] Exit Script (Return to Main Menu)\n>>> SELECTION:")
+        if chgDictSelect in ("c","C"):
             setMenuDict() #call to the function defined below to add keys
-        elif chgDictSelect in ("b","B"):
+        elif chgDictSelect in ("p","P"):
             printAllDict() #call to the function below to print my pretty table.
-        elif chgDictSelect in ("c","C"):
+        elif chgDictSelect in ("d","D"):
             delKeyName = input("\nType the name of the key to delete:\n") #Key deletion, small enough to just perform
             try:                                                          #   within the main menu
                 del menu[delKeyName]
             except KeyError:
                 pass
             print("Key successfully removed!")
-        elif chgDictSelect in ("x","X"):
+        elif chgDictSelect in ("e","E"):
+            print("\n\n**Have a great day! Thank you for using The Command-Prompt Menu Generator!**")
+            return False #Finishes the loop.
+        elif chgDictSelect in ("q","Q"):
             sys.exit() #Using the imported "sys" module, this kills the entire script's process.
         else:
             print("\nOops, that option is not available, please try again!\n") #To let the user know if they keyed in
@@ -64,7 +68,3 @@ def printAllDict(): #Process for printing values in a fancy table format
     for key,val in menu.items():
         print(spacer, '{0:3s}{1:20s}{2:27s}{3:10s}{4:4s}'.format(spGrid, key, ctrGrid.center(22),
                                                                  val.rjust(10), rpGrid), spacer)
-
-mainMenu()
-
-print("\n\n**Have a great day! Thank you for using The Command-Prompt Menu Generator!**")
