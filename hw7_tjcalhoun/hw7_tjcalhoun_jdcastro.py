@@ -23,12 +23,12 @@
         Compress the two files as a .zip (please no .rar or 7z or other weird files thank you so much :D
 '''
 
-from newmods import menugen, zoo, goat, guess, age
+from newmods import menugen, zoo, goat, guess, age #imported Modules names are small enough, no alias needed.
 
-spacer = ("+="*40)+"\n"
+spacer = ("+="*40)+"\n" # a fancy effect for the main menu
 
 def assignment_stuffs(): #for the defaultdict part of the assignment...
-    print("//   // UNDER CONSTRUCTION //   //".center(80)) #placeholder
+    print("//   // UNDER CONSTRUCTION //   //".center(80)) #placeholders unit we write this code out
     print("//   // UNDER CONSTRUCTION //   //".center(80))
     print("//   // UNDER CONSTRUCTION //   //".center(80))
 
@@ -47,8 +47,8 @@ def home_menu():
 {}+=  [6] Enough of this Tom-Foolery, get on with the assignment!               +=
 {}+=  [Q] Quit Program                                                          +=
 {}
-        '''.format(spacer,spacer,spacer,spacer,spacer,spacer,spacer,spacer))
-        userOption = input("Selection: ")
+        '''.format(spacer,spacer,spacer,spacer,spacer,spacer,spacer,spacer)) #printed independently to format easier
+        userOption = input("Selection: ") #user input
         if userOption == "1":
             print("\n"*10)
             zoo.hours()
@@ -75,5 +75,8 @@ def home_menu():
             print("\n"*5)
         elif userOption in ("q","Q"):
             return False
+        else:
+            print("I'm sorry, you have entered an option that is not supported. Please select a response\n"
+                  "from above, only typing what is listed in the [brackets].\n\n\n\n\n")
 
 home_menu()
