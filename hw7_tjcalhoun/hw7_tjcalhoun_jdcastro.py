@@ -25,18 +25,38 @@
 
 from newmods import menugen, zoo, goat, guess, age #imported Modules names are small enough, no alias needed.
 from collections import OrderedDict, defaultdict
+import pprint
 
 spacer = ("+="*39)+"\n" # a fancy effect for the main menu
 
 def assignment_stuffs(): #for the defaultdict part of the assignment...
     print("A heads up, if you skipped option \"2\", you will be sadly disappointed by this section.\n"
-          "But no worries, following this section will be another opportunity!")
+          "But no worries, following this section will be another opportunity!\n")
     userMenu = OrderedDict(menugen.menu)
-    print(menugen.mTitle.center(80),"\n", userMenu)
+    print("This section is iterating the modifiable diction you constructed in menu option\n"
+          "number \"2\", called {}. You may notice the sort by keys (item name).".format(menugen.mTitle))
+    print("\n", userMenu, "\n")
+    input("Press the ENTER key to continue...".center(80))
 
-    dict_of_lists = {}
-    print("Behold, the Dict of Lists...\n",dict_of_lists, "\n (Yes, its empty... I know.")
-    defaultdict(dict_of_lists)
+    dict_of_lists = defaultdict(list)
+
+    print("Behold, the Dict of Lists...\n",dict_of_lists, "\n (Yes, its empty... I know.)")
+    dict_of_lists["a"]
+    print("\nAnd now, with a defaultdict assignment...\n",dict_of_lists,"\n")
+    print("Now, for this last part of the assignment, I will ask for\n some participation in the audience (you).\n")
+
+    while True:
+        print("\n\n")
+        askUserAppend = input("Please type a value to insert for key \"a\" in the defaultdict\n"
+                              "(Spaces not tolerated within entry)... VALUE: ")
+        print("\n")
+        dict_of_lists["a"].append(askUserAppend)
+        print("This will be displayed in a KEY : VALUE pair:".center(40))
+        pprint.pprint(dict_of_lists,indent=4,  width=1)
+        print("\n")
+        askUserCont = input("Continue? [ Y / N ]:".center(80)).lower()
+        if askUserCont == "n":
+            return False
 
 
 def home_menu():
