@@ -1,8 +1,11 @@
-
 # Thomas Calhoun & Jose Castro
 # homework #6
 # tjcalhoun@alaska.edu & jdcastro@alaska.edu 18 Feb 2016 to 25 Feb 2016
 # Python 3.5.1
+
+"""
+Modified for Module use
+"""
 
 from random import randint
 import time
@@ -131,7 +134,7 @@ def guess_loop(): # the gears of our game.
               "  [B] I guess I could guess as good as the rest... \n"
               "      (7 Tries, 25 Possibilities)\n"
               "  [C] Guessing is for losers... \n"
-              "      (10 Tries, 20 Possibilities)\n".format(genderVar,Useroutput.title()))
+              "      (10 Tries, 20 Possibilities)\n".format(genderVar,Userinput.title()))
         diffSelect = input("Your Choice: ").lower()
         if diffSelect == "a":
             setTries = 3
@@ -199,7 +202,7 @@ def losers_weep():
     print("\nI regret to inform you, that you have lost. "
           "The number was {}!\n    Better luck next time!!!".format(random))
     print()
-    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!\n")
+    print("Thank you, " + genderVar + Userinput.title() + " for your participation!\n")
     print("Would you like to try again?")
     restartPrompt = input("[Y / N]:  ").lower()
     if restartPrompt == "y":
@@ -211,26 +214,24 @@ def losers_weep():
 def winner_circle():
     print("\nCongratulations YOU WIN!!! The number was indeed {}!".format(random))
     print()
-    print("Thank you, " + genderVar + Useroutput.title() + " for your participation!")
-    if Useroutput is "Smaug":
+    print("Thank you, " + genderVar + Userinput.title() + " for your participation!")
+    if Userinput is "Smaug":
         print("\nYou may have noticed that your name has been modified... \n    Only {} is a truly notable name "
-              "for a dragon in this realm!\n".format(Useroutput))
-
-Useroutput = str(Userinput)
+              "for a dragon in this realm!\n".format(Userinput))
 
 def call_to_start():
-	# The Welcome Screen
-	print("Welcome to the number guessing game!".center(80))
-	print()
-	name_set() # Call to begin the program.
+    # The Welcome Screen
+    print("Welcome to the number guessing game!".center(80))
+    print()
+    name_set() # Call to begin the program.
 
-	try: # Call to begin the game with exception handling.
-		guess_loop()
-	except ValueError as err:
-		print("Error_01: Wrong input! You need to type a number. Please re-enter and try again.")
-		guess_loop()
-	except Exception as err:
-		print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
-		guess_loop()
+    try: # Call to begin the game with exception handling.
+        guess_loop()
+    except ValueError as err:
+        print("Error_01: Wrong input! You need to type a number. Please re-enter and try again.")
+        guess_loop()
+    except Exception as err:
+        print("Error_02: Unknown Exception raised, please re-check value entered and try again!")
+        guess_loop()
 
 

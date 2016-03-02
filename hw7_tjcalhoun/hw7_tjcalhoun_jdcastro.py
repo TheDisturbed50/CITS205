@@ -24,13 +24,20 @@
 '''
 
 from newmods import menugen, zoo, goat, guess, age #imported Modules names are small enough, no alias needed.
+from collections import OrderedDict, defaultdict
 
-spacer = ("+="*40)+"\n" # a fancy effect for the main menu
+spacer = ("+="*39)+"\n" # a fancy effect for the main menu
 
 def assignment_stuffs(): #for the defaultdict part of the assignment...
-    print("//   // UNDER CONSTRUCTION //   //".center(80)) #placeholders unit we write this code out
-    print("//   // UNDER CONSTRUCTION //   //".center(80))
-    print("//   // UNDER CONSTRUCTION //   //".center(80))
+    print("A heads up, if you skipped option \"2\", you will be sadly disappointed by this section.\n"
+          "But no worries, following this section will be another opportunity!")
+    userMenu = OrderedDict(menugen.menu)
+    print(menugen.mTitle.center(80),"\n", userMenu)
+
+    dict_of_lists = {}
+    print("Behold, the Dict of Lists...\n",dict_of_lists, "\n (Yes, its empty... I know.")
+    defaultdict(dict_of_lists)
+
 
 def home_menu():
     """
@@ -39,38 +46,38 @@ def home_menu():
     """
     while True:
         print("<><>-<><> MAIN MENU <><>-<><>".center(80), "\n", '''
-{}+=  [1] See the Zoo Hours!                                                    +=
-{}+=  [2] Create a Fun Menu!                                                    +=
-{}+=  [3] Test your skills with the Fallout 3 G.O.A.T.!                         +=
-{}+=  [4] Play "Guess the Number"!                                              +=
-{}+=  [5] See how long you have existed with the Age Calculator!                +=
-{}+=  [6] Enough of this Tom-Foolery, get on with the assignment!               +=
-{}+=  [Q] Quit Program                                                          +=
+{}+=  [1] See the Zoo Hours!                                                  +=
+{}+=  [2] Create a Fun Menu!                                                  +=
+{}+=  [3] Test your skills with the Fallout 3 G.O.A.T.!                       +=
+{}+=  [4] Play "Guess the Number"!                                            +=
+{}+=  [5] See how long you have existed with the Age Calculator!              +=
+{}+=  [6] Enough of this Tom-Foolery, get on with the assignment!             +=
+{}+=  [Q] Quit Program                                                        +=
 {}
         '''.format(spacer,spacer,spacer,spacer,spacer,spacer,spacer,spacer)) #printed independently to format easier
         userOption = input("Selection: ") #user input
         if userOption == "1":
-            print("\n"*10)
+            print("\n"*1)
             zoo.hours()
             print("\n"*5)
         elif userOption == "2":
-            print("\n"*10)
+            print("\n"*1)
             menugen.mainMenu()
             print("\n"*5)
         elif userOption == "3":
-            print("\n"*10)
+            print("\n"*1)
             goat.start_goat()
             print("\n"*5)
         elif userOption == "4":
-            print("\n"*10)
+            print("\n"*1)
             guess.call_to_start()
             print("\n"*5)
         elif userOption == "5":
-            print("\n"*10)
+            print("\n"*1)
             age.age_calc()
             print("\n"*5)
         elif userOption == "6":
-            print("\n"*10)
+            print("\n"*1)
             assignment_stuffs()
             print("\n"*5)
         elif userOption in ("q","Q"):
