@@ -1,6 +1,6 @@
 # Thomas Calhoun
-# FINAL PROJECT
-# tjcalhoun@alaska.edu 24 Mar 2016
+# SIDE PROJECT
+# tjcalhoun@alaska.edu 29 Mar 2016
 # Python 3.5.1
 
 import pandas as pd
