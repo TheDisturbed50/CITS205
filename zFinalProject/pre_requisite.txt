@@ -1,0 +1,4 @@
+pip install numpy-1.11.0+mkl-cp35-cp35m-win_amd64.whl
+pip install matplotlib-1.5.1-cp35-none-win_amd64.whl
+pip install basemap-1.0.8-cp35-none-win_amd64.whl
+pip install Pillow-3.2.0-cp35-cp35m-win_amd64.whl

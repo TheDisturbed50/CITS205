@@ -1,0 +1,16 @@
+Welcome to pyFATDS!
+
+A pseudo-simulation of a Military computational program used primarily for
+the coordination of indirect fires, to include Mortars and Field Artillery.
+
+This instance, will be a loosely-based interpretation of the program, using a
+single-gun artillery battery with limited munition options.
+
+The sense of 'challenge' of using this program, will occur when the user has
+approved a "Ready"status, and missions will drop into play with a
+varying level of difficulty.
+
+At any time, you may click the "help" button at the top-left corner of the screen,
+for additional tips.
+
+Enjoy!

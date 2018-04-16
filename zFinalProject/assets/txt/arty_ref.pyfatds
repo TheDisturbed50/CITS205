@@ -1,0 +1,94 @@
+So, you wanna know about Artillery?
+
+I'll save the history and line-by-line topics for another day... But, to use this program
+to it's potential, you will need to know the basics!
+
+Field Artillery begins at the Unit Level. A Hierarchy example is as follows, from lowest to highest:
+
+>> Section/Squad: This is lowest echelon of an Artillery unit Hierarchy. Typically a crew of 3 to 6 soldiers,
+sections exist for the Gun-Line (Canon Crew) or Fire Direction Control (Where this program was inspired from.
+Each Gun-Line section is assigned one Howitzer Canon.
+
+>> Platoon: Usually composed of 2 or 3 Gun-Line sections, and 1 FDC Section.
+
+>> Battery/Company: Can vary based on the Platoon structure, but a Gun Battery typically has 2-4 Platoons.
+There are also Headquarters Batteries, whom manage the operations coordination based on orders from higher
+levels of command. HQ Batteries are made of several platoons, for example: 1st - Personnel (S1),
+2nd - Intelligence (S2), 3rd - Operations & Command (S3), 4th - Communications (Commo).
+
+>> Battalion/Regiment. This is the headquarters level, and coordinates operations and movements for the
+Gun Batteries (Operated by a HQ battery)
+
+>> Brigade. This is a collection of units, that typically deploys as one, then disperses to an
+assigned area of operations. A Brigade example is the (now disbanded) 5th Stryker Brigade:
+3 Infantry Battalions, 1 Calvary Battalion, 1 Artillery Battalion, and 1 Brigade Support Battalion.
+(The Brigade Support Battalion includes Logistics (Fuel, Transportation), Cooks, etc...)
+
+This program will setup for a Single-Section Platoon. (1 gun, 1 FDC (you))
+
+The variables of a gun-line - we will look at what it takes to make the big bang happen!
+In order to make a cannon effective, you need a few physical elements:
+The Propellant, typically an enclosed powder charge to propel a projectile.
+The Projectile, while many variations exist - there are a few basic types:
+    High-Explosive: Best for Anti-Personnel and Anti-Vehicle effects.
+    Illumination: Vital for units that are on patrol at night, this round has a high-intensity candle inside
+        that can illuminate a wide area.
+    Smoke: Designed as a screening method to hide unit movements, modern White Phosphorous smoke rounds
+        are regulated by the Geneva Convention and prohibit use of them as anti-personnel munitions.
+The Fuze, all efforts to this point will have been in vein if we forgot to install the fuze!
+    There are a few types of fuzes, and can be used on different projectiles.
+    In this program, we will have standardized Fuze/Round Pairs.
+The Primer, is basically a gunpowder-packed revolver casing, that will ignite the propellant when
+    the howitzer is fired.
+
+To make the Fire Direction Control effective, we need, some whole other element - information:
+Grid Locations. For gun positions, and target (when available). Intelligence will assess possible areas
+    could dwell, or initiate an attack...
+Howitzer Azimuth of Fire. The direction that guns are laid, are imperative, as a target that is
+    outside the Quadrant of fire (Direction, with the Left and Right bounds. We'll cover this more later on.)
+Meteorological Data. 'MET' data will make ultrafine calculations for trajectory when the projectile is fired.
+    (We will not touch MET in this program, simply because it is tiresome and I'm on a deadline!)
+Howitzer Calibration Tests. There is standardized data in the military world for Projectile/Propellant/Gun
+    combinations, but those tests were done at Aberdeen Proving Grounds in Maryland. Truth is,
+    what once left the muzzle at 2700 Feet Per Second in Maryland, may be more like 3900 FPS in the
+    middle east. Calibration is done as quickly as possible to have the most accurate effects.
+Propellant Temp. Prop Temps are needed to help close that accuracy gap, as rate of ignition between each
+    speck of propellant can vary, affecting the velocity.
+
+The Moment of Action, A call for Fire!
+It technically starts out in the field, a Forward Observer, can be trained individual in a Squad/Platoon, or even
+an Unmanned Aerial Vehicle can properly determine a target grid for fire effects.
+From there, the FDC gets the call over the radios, "FIRE MISSION" is the first words said after the radio caller
+    identifies themselves. Next information given is the Grid Location, so we can plot the target and immediately
+    assess if it covered by the live Howitzers Azumith.
+After the grid, the caller will either specify their desired Projectile and Effect (Point Det, Airburst, or
+    Delayed det), or the Target Type for the Artillery Safety Officer to determine. (Most forward units will
+    have a Fire Effects Control Center, or FECC, to make these determinations for use of Artillery, or
+    divert the call for help to be responded by Close Air Support.)
+Internally, this information is computed on 2 to 3 platforms.
+    The Manual Chart, plots the grids using pins and uses a protractor to determine range and "deflection"
+    (the direction adjustment for the howitzer). A set of formulas are used to factor in the MET data and other
+    variables.
+    Digital Computation Methods, are preferred as it is not only faster, but leaves less room for human error.
+    There are a few platforms in use, primarily the AFATDS, and modern handheld devices have been fielded as
+    well.
+    Having Multiple platforms is for internal verification, the margin of error is to be kept minimal, and if the
+    chart data varies significantly, we must re-calculate.
+    After data is verified, the radio operator for FDC will communicate to the observing unit what the Time of Flight
+    will be, so they can expect the impact.
+Upon verifying our computed data, we have now the firing order for the Gun-Line. Similar to the initial call
+    for fire, we radio down on a secure handheld radio, "FIRE MISSION!, GUN 1, 3 ROUNDS, WHEN READY, SHELL HE,
+    DEFLECTION 2890, ELEVATION 419, FUZE PD, CHARGE 3H, over."
+The Gun-Line will spring into action, calling "shot, over" on the radios so we can echo it back to the forward
+     units. At the end of their volley, the Gun-Line will radio to the FDC "Rounds Complete".
+
+At this point, the firing unit is still live, the observers will either call a "Rounds Complete", "Repeat", or
+    "Adjust Fire".
+
+And that folks, in a giant nutshell, is how U.S. Army Artillery tends to operate.
+
+What you will experience using this program, is heavily condensed. Just setting up a live unit is tedious, and I
+   would probably get an F on my assignment after teacher had to read something like 2000 lines of code.
+
+If you get stuck, or think I need to clarify/tone down on certain topics, email me!
+    john.fullmetaljacket@gmail.com

@@ -1,0 +1,58 @@
+CITS205 TX1, Spring 2016.
+tjcalhoun@alaska.edu
+john.fullmetaljacket@gmail.com
+
+Project Start:
+The origin of the project was a sort of blind ambition, I wanted something great but didn't have any glorious ideas.
+
+pyFATDS was a sort of - last resort plan. Trying to replicate the fun part of computing firing data was something that most certainly has NOT been
+attempted as of yet (according to my brief internet searches). The inspiration, AFATDS, was originally written in the ADA programming language.
+Typical Government using their own proprietary language. But the more modern revisions, are built in C++.
+
+Implementation:
+Immediately, I was venturing into no mans land by working with specific modules together. Below are some changes I had to power through.
+
+- Tkinter, Matplotlib, and Basemap (child of Matplotlib), are the chosen core of this program within Python.
+- Tkinter + Basmap examples were short, but I was able to get a working example fairly quick (and tailor it to my ideas)
+- Tkinter example for page navigation implemented, and kept Basemap in tact. Attempting to work with 2 basemaps at once
+	(one for geographical reference, the other for zoomed in area of operations).
+- Multiple basemaps aborted. Plotting points within either map causes a glitch, and re-zooms map out to wide geo area.
+- Basemap resolution for zoomed region fix: Standard overlays for mapping get very pixelated when zoomed, the best fix I could conjur was to
+	plot an image to a basemap background, using the map corners grid coordinates (screenshot from USGS website) as the bounding box. (Uses PIL module)
+- Coordinate Markings for reference, kept to scale and accuracy by using the above methods. Had to utilize Numpy module to display floats as reference markers.
+- Gun Data: working a system to halt the "Challenge" (which is still in planning), using a Boolean value toggled with a "Ready" and "Not Ready" button...
+	This lead to a small rabbit trail, leading to a label indicator for Ready/Not, and a boolean indicator to make sure the value was truly stored.
+	The Boolean indicator, was finally updated automatically by click binding instead of a manual button. Contemplating on leaving it up :P.
+	The flashy ready/not label itself is updated solely by button command at this point.
+- Gun Data 2: Constructed variable tables, for varying munition types.
+- Trajectory Math devised: This is where the program loses all real world expectations, using the user selections of gun data:
+	---
+- Selection Menus: Constructing them to iterate over the initial Dict's that defined inventory, and work a conditional to update labels with StringVar
+- Help Windows: Initial window is a simple lineup of packed Label widgets. The Artillery learning window is a tkinter text widget with embedded scrollbar.
+	I'm not totally sold on the text widget because it was designed for text editor implementation... Meaning you could backspace characters and type into
+	the text field (when all I wanted was a scrollable text field to display the string). However, this widget can display a LARGE string, when Label widget
+	cannot... The Scrollbar compatibility helped push the decision. My alternate was to construct a Frame for the window, and then embed a Canvas to the frame,
+	then a Scrollbar to the canvas (as that pair would be compatible).
+- Gun Data revision: Removed Fuzes as a variable option - will just keep it as Shell/Fuze combo.
+	Also scrubbed a quantity tracking system. The main inspiration of this was to save to file, and have the user be mindful of such a thing,
+	but my window of time closes in... And I would rather focus on the core functions of this program for now.
+- File I/O: Worked out kinks with the autosave & autoload. Avoided manual save/load to make a seamless interface, and to give that "what you've done is what you get"
+	atmoshpere. Of course, a savvy user can just manually update the .cfg file in /assets to default values.
+	ALSO: Yanked out my long strings, and exported them to text files, with a custom extension ".pyfatds" to discourage tampering. The are imported simply,
+	and efficiently to reduce my total lines of code.
+- Targeting: We'll have Six levels to engage in. Targets will have assigned target numbers and grids. Timer decreases with difficulty.
+- Key Bindings: Added in some fluff, support for page nav and a F1 help option. Fullscreen is now enabled by default, 
+	but <Esc> can exit fullscreen (<F11> to reinstate).
+- Missions: Built some predefined targets, and pondering another idea but time is closing in! Now, using a Haversine formula I found on Stack Exchange, we can get 
+	target ranges that are not dependant on the external libraries. Trying to work out a bug where the program will not remove a previous target before plotting
+	the next. I may accept it as an anamoly, although it gives the program a buggy look (which I do not want).
+	Mission construction has been bumpy, several functions are needed to reduce redundancy, and in the process, some calls just dont seem to work right!
+- Procedure: So, I've enforced the gun ready & not ready variable to determine further progress. Works flawlessly.
+
+Final Notes on Turn-In:
+I'm actually relieved to get this in on time! Although incomplete, I dont think I would ever hit 100% perfection.
+Having something left to work on sits well on me, I might come back to this months from now and have a code-a-thon when I can't sleep
+and churn out the masterpiece I envisioned!
+
+My main focus before turn-in, is to close off some sloppy ends, possible problems, and leave some partly-started code to show -
+what I started and where this was heading.

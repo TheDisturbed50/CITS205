@@ -1,0 +1,32 @@
+                 First off, this application will be nothing like the Government developed system.
+
+Disclaimer:
+This program is in no way, shape, or form, intended to replicate or reveal secrets of any Military computer system.
+My only intent to expand my skills in a fashion that may someday become practical for a prospective employer.
+
+What AFATDS does, that pyFATDS will not:
+- Actually Communicate digitally to military elements. (Howitzers, Radar, Meteorological Stations, etc...).
+- Allows for baseline calibrations of howitzers.
+- Requires user to setup database initially (Munitions, Howitzers/Units, Locations, Safety Zones, preferences).
+- Calculate and alert for Safety data (Possible collisions with Mountains, etc...
+    I'll try to work this in if I don't get burn't out!)
+
+Goals are as follows:
+= Establish a mapping & grid system.                      (DONE, can use lat/lon, uses basemap rendering & custom image)
+> Have a fictional howitzer (cannon) and location.        (In prog, just needs some ID & location tweaks)
+> Setup a pre-defined firing zone for howitzer.           (Pending...)
+> Have Gun (Howitzer) variable options setup from launch;                (--All Pending...)
+-> Munition (Shell) Types.                                                                  (--Planning Phase)
+-> Propellant (Charge) Types.                                                               (--Planning Phase)
+-> (optional) Factor Propellant temps to affect trajectories.                               (--Planning Phase)
+-> (optional) Factor MET (Meteorological) data to affect trajectories.                      (=SCRAPPED=)
+> Work above values to provide a calculated output as orders for the Gun Battery.           (Pending...)
+> Integrate an easy tutorial for show the user 'the ropes'.                                 (Pending...)
+> I want to have a sort of 'animation' effect for when Gun data is sent to the Gun Line.    (Pending...)
+> I want to introduce Challenges... To keep interest of the user.                           (Pending...)
+
+Known Bugs:
+! Close-up Map Quality - Looks good in Fullscreen, but needs antiailasing when windowed.
+! Inventory Select - OptionMenu drops do not show current selection.
+! Page Navigation - Goes rogue, and skips a page from start, then cannot nav back to start with keys.
+! Custom Plotting - Not fully developed, the GUI input method could be causing the habbub.
